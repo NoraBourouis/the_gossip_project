@@ -1,6 +1,6 @@
 <h1>Gossip Card</h1>
 <li>Titre du gossip :<%= @gossip.title%> </li>
 <li>Le gossip :<%= @gossip.content%> </li>
-<li>Lanceurs de rumeurs : <%= @gossip.user.first_name %></li>
+<li>Lanceur de rumeurs :<a href= "/profils/<%= @user.id%>"> <%= @gossip.user.first_name %></li>
 <li>Date du Gossip : <%= @gossip.created_at%></li>
 
