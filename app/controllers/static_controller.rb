@@ -6,12 +6,12 @@ class StaticController < ApplicationController
   end
 
   def home
-  @username = params["first_name"]
+  @firstname= params[:first_name]
   end
 
   def welcome
     puts params
-    @username = params["first_name"]
+    @firstname = params["first_name"]
     puts "c'est fini"
   end
 end

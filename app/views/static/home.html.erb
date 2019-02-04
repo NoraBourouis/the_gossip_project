@@ -1,2 +1,11 @@
-<h1>Welcome <%= @username %></h1>
+<h1>Welcome <%= @firstname%></h1>
 <h2>Ici c'est notre super site de potins, il est chouette, non ? </h2>
+
+Voici la liste des potins 
+<% Gossip.all.each do |gossip|  %>
+<p> Gossip</p>
+<li>Titre du gossip :<%= gossip.title%> </li> 
+<li>Lanceurs de rumeurs: <%= gossip.user.first_name %></li>
+<hr/>
+
+<% end %>
