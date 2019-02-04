@@ -3,7 +3,7 @@ require 'faker'
 RSpec.describe User, type: :model do
   before(:each) do 
     city = FactoryBot.create(:city)
-    @user = User.create(first_name:Faker::Name.first_name,last_name:Faker::Name.last_name,description:Faker::FamousLastWords.last_words,email:Faker::Internet.email,age:rand(18..29),city_id:1)
+    @user = User.create(first_name:Faker::Name.first_name,last_name:Faker::Name.last_name,description:Faker::FamousLastWords.last_words,email:Faker::Internet.email,age:rand(18..29),city_id: city.id)
   
   end
 
