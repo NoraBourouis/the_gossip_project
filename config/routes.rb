@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   post '/', to: 'static#home'
   
   get '/welcome/:first_name', to: 'static#welcome', as: 'welcome'
+  get '/gossips/:id/', to: 'static#gossips'
 
- 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end

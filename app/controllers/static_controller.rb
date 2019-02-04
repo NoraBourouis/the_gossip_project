@@ -14,4 +14,8 @@ class StaticController < ApplicationController
     @firstname = params["first_name"]
     puts "c'est fini"
   end
+
+  def gossips
+    @gossip = Gossip.find(params['id'].to_i)
+  end
 end
