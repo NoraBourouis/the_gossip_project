@@ -14,3 +14,5 @@ Ensuite, lancez votre serveur avec un "rails server".
 Allez sur votre navigateur et allez sur la page http://localhost:3000/
 
 A partir de cette page, la navigation commence ! Enjoyyyyy.
+
+# Description de l'application
