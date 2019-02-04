@@ -1,24 +1,16 @@
-# README
+# README POUR L'APPLICATION the_gossip_project
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Projet réalisé par Nora Bourouis & Jonathan Lutz
 
-Things you may want to cover:
+# Consignes d'utilisation
 
-* Ruby version
+Lorsque vous lancez le fichier, n'oubliez pas de lancer :
+rails db:create
 
-* System dependencies
+Après quoi vous pouvez faire un rails db:migrate
+et rails db:seed pour avoir la base de donnée ready.
 
-* Configuration
+Ensuite, lancez votre serveur avec un "rails server". 
+Allez sur votre navigateur et allez sur la page http://localhost:3000/
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+A partir de cette page, la navigation commence ! Enjoyyyyy.
