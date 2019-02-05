@@ -6,4 +6,3 @@ class Gossip < ApplicationRecord
   validates :content, presence: true
 end
 
-end
