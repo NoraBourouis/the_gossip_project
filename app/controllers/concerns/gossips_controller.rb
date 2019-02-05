@@ -1,5 +1,5 @@
 class GossipsController < ApplicationController
-  def gossips
+  def index
     @gossip = Gossip.find(params['id'].to_i)
     @user = User.find(params['id'].to_i)
   end
