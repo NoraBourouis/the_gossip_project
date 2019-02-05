@@ -1,13 +1,14 @@
 Rails.application.routes.draw do
-  get 'team', to: 'static#team'
-  get 'contact', to:'static#contact'
+  get 'gossips/index'
+  get 'team', to: 'teams#index'
+  get 'contact', to:'contacts#index'
   get 'home', to: 'static#home'
   get'/', to: "static#welcome"
   post '/', to: 'static#home'
   get '/welcome/:first_name', to: 'static#welcome', as: 'welcome'
 
-  get '/gossips/:id/', to: 'static#gossips'
-  get '/profils/:id/', to: 'static#profiles'
+  get '/gossips/:id/', to: 'gossips#index'
+  get '/profils/:id/', to: 'profiles#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 end
