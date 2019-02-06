@@ -4,12 +4,11 @@ class GossipsController < ApplicationController
   end
 
   def show
-    # Méthode qui récupère le potin concerné et l'envoie à la view show (show.html.erb) pour affichage
+   
   end
 
   def new
-    @gossipnew = Gossip.new('title' => params[:title],
-      'content' => params[:content], 'user_id'=> rand(User.first.id..User.last.id))
+    @gossipnew = Gossip.new
     # Méthode qui crée un potin vide et l'envoie une view qui affiche le formulaire pour 'le remplir' (new.html.erb)
   end
 
@@ -20,9 +19,11 @@ class GossipsController < ApplicationController
                      'user_id'=> rand(User.first.id..User.last.id))
 
     if @gossipnew.save
-      redirect_to home_path
+      flash[:success] = "Woohoo, merci pour ce gossip!"
+      redirect_to home_path 
       puts "gossip created"
     else
+      flash[:notice] = "Pas de potins...Faut écrire correctement roh. "
       render 'new'
     end
     # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
