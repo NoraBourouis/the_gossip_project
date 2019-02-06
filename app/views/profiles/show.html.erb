@@ -1,0 +1,23 @@
+<% user = User.find(@id_user)
+@first_name = user.first_name
+@last_name = user.last_name
+@descripion = user.description
+@email = user.email
+@age = user.age
+@city = user.city.name
+%>
+
+<section class="jumbotron text-center">
+ <div class="container">
+    <h1 class= "display-3 jumbotron-heading">Le profil du commère</h1>
+    </div>
+</section>
+<div class="container">
+   <h1></h1>
+    <p>Prénom : <%= @first_name %> </p>
+    <p>Nom de famille : <%= @last_name %> </p>
+    <p>Sa description : <%= @descripion%> </p>
+    <p>Son e-mail : <%= @email%> </p>
+    <p>Age : <%= @age%> </p>
+    <p>Originaire de : <%= @city%> </p>
+</div>

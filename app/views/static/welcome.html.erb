@@ -1,6 +1,20 @@
-<h1>HEEEEEY, salut toi ! Bienvenue</h1>
-<p>On a des petites questions pour toi. Tout d'abord :</p>
-<form action="/" method="post">
-<input type="hidden" name="authenticity_token" value = "<%form_authenticity_token %>">
- C'est quoi ton prénom?
-<input type = "text" name="firstname">
+<section class="jumbotron text-center">
+ <div class="container">
+ <h1 class= "display-3 jumbotron-heading">HEEEEEY, salut toi ! Bienvenue</h1>
+ </div>
+ </section>
+<div class="card text-center">
+  <div class="card-header">Mais, t'es qui ?</div>
+  <div class="card-body">
+    <h5 class="card-title">On a une petite question pour toi. La voici :</h5>
+    <p class="card-text">
+    <form action="/" method="post">
+    <input type="hidden" name="authenticity_token" value = "<%form_authenticity_token %>">
+    C'est quoi ton prénom?
+    <input type = "text" name="firstname">
+    </p>
+  </div>
+  <div class="card-footer text-muted">
+    Merci pour l'info !
+  </div>
+</div>

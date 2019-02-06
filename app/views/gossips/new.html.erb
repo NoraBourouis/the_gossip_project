@@ -1,4 +1,9 @@
-<h1>Ecrire un Gossip</h1>
+<section class="jumbotron text-center">
+ <div class="container">
+    <h1 class= "display-3 jumbotron-heading">Ton gossip</h1>
+    <p>Dis nous tout, n'ai pas peur, mon petit.</p>
+  </div>
+</section>
  <%= form_tag url_for(action: 'create'), method: "post" do %>
      <div class ="form-group">
       <%= label_tag 'Titre du gossip : '%>
