@@ -1,0 +1,29 @@
+<% potin = Gossip.find(@id_potin)
+    @title = potin.title
+    @content = potin.content
+    @user = potin.user.first_name 
+    @user_id = potin.user_id 
+    @time = potin.created_at
+    @city = potin.user.city.name
+    %>
+<section class="jumbotron text-center">
+ <div class="container">
+    <h1 class= "display-3 jumbotron-heading">Voila les détails du potin<%= @firstname%></h1>
+    <p class= "lead text-muted"> Garde l'identité du mec secrète par contre, on veut pas d'problèmes nous. </p>
+  </div>
+</section>
+<div class="container col-sm-9">
+    <h3 class="mb-0 font-weight-bold"><%= @title %> </h3>
+      <div class="well"> 
+        <p class="text-justify"> Les détails croustillants :</p> 
+        <p><%= @content %></p>
+      </div>
+    <p>Gossip partagé par <a href= "/profils/<%=@user_id%>"><%=@user%> </a>, <em>shhh, keep it secret.</em></p>
+    <p>De la charmante ville de <strong> <%=@city %></strong>.</p>
+
+  <div class="btn-group">
+    <a href="<%=edit_gossip_path(@id_potin)%>" class="btn btn-sm btn-outline-secondary">Edit</a>
+    <a href="<%=gossips_path%>" class="btn btn-sm btn-outline-secondary">Retour à l'accueil</a>
+    <a href="<%=gossips_path%>" class="btn btn-sm btn-outline-secondary" data-confirm ="T'es sûr de toi là??" data-method="DELETE">Supprimer</a>
+  </div>
+</div>

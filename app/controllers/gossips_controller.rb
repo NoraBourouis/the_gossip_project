@@ -1,10 +1,11 @@
 class GossipsController < ApplicationController
   def index
-   
+      @firstname= params[:firstname]
+      @gossip = Gossip.all
   end
 
   def show
-   
+    @id_potin = params[:id].to_i
   end
 
   def new
@@ -20,18 +21,47 @@ class GossipsController < ApplicationController
 
     if @gossipnew.save
       flash[:success] = "Woohoo, merci pour ce gossip!"
-      redirect_to home_path 
+      redirect_to gossips_path 
       puts "gossip created"
     else
       flash[:notice] = "Pas de potins...Faut écrire correctement roh. "
       render 'new'
     end
-    # Méthode qui créé un potin à partir du contenu du formulaire de new.html.erb, soumis par l'utilisateur
-    # pour info, le contenu de ce formulaire sera accessible dans le hash params (ton meilleur pote)
-    # Une fois la création faite, on redirige généralement vers la méthode show (pour afficher le potin créé)
+   
+  end
+
+  def edit
+    @gossip = Gossip.all
+    @gossip = Gossip.find(params[:id])
+  
+  end
+
+  def update
+    #@gossip = Gossip.find(params[:id])
+    #@gossip.update('title' => params[:title], 'content' => params[:content])
+    #@gossip.update(gossip_params)
+    @gossip = Gossip.find(params["id"])
+    if  @gossip.update(title: params["title"], content: params["content"])
+      redirect_to gossip_path(@gossip.id), notice: "Gossip successfully modified! "
+    else 
+      render 'edit'
+    end
+    #redirect_to gossip_path
   end
 
 
+  def destroy
+    @gossip = Gossip.find(params[:id])
+    @gossip.destroy
+    redirect_to gossips_path
 
+  end
+=begin
+  private
 
+  def gossip_params
+    @gossip = Gossip.all
+    gossip_params = params.require(:gossip).permit(:title, :content)
+  end
+=end
 end
