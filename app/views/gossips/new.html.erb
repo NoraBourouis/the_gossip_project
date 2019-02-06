@@ -1,1 +1,14 @@
 <h1>hello world</h1>
+ <%= form_tag url_for(action: 'create'), method: "post" do %>
+
+      <%= label_tag 'Title' %>
+      <%= text_field_tag 'title', @gossip.title %>
+      <br /> <br />
+
+      <%= label_tag 'Content' %>
+      <%= text_area_tag 'content', @gossip.content %>
+      <br /> <br />
+
+      <%= submit_tag "Create Post" %>
+
+    <% end %>
