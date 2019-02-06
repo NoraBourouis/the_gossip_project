@@ -8,8 +8,8 @@
     <div class="card">
       <div class="card-body">
         <h5 class="card-title">Titre du gossip :<%= gossip.title%></h5>
-        <p class="card-text">Lanceurs de rumeurs : <%= gossip.user.first_name %> Date du Gossip : <%= gossip.created_at%></p>
-        <a href="/gossips/<%= gossip.id%>" class="btn btn-primary">Check le gossip</a>
+        <p class="card-text">Lanceurs de rumeurs : <% gossip.user_id %>  Date du Gossip : <%= gossip.created_at%></p>
+        <a href="/gossip/<%= gossip.id%>" class="btn btn-primary">Check le gossip</a>
       </div>
     </div>
   </div>

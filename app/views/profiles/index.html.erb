@@ -1,5 +1,9 @@
-<h1>Le profil du commère</h1>
-<li>Son prénom : <%= @user.first_name%> </li>
-<li>Son nom : <%= @user.last_name%> </li>
-<li>Son age : <%= @user.age %></li>
-<li>Sa bio : <%= @user.description%></li>
+<% user = User.find(@id_user)
+@first_name = user.first_name
+@last_name = user.last_name
+%>
+<div class="container">
+   <h1>Le profil du commère</h1>
+    <p>Prénom : <%= @first_name %> </p>
+    <p>Nom de famille : <%= @last_name %> </p>
+</div>
