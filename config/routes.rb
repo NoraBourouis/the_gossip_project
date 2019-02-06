@@ -7,10 +7,11 @@ Rails.application.routes.draw do
   post '/', to: 'static#home'
   get '/welcome/:first_name', to: 'static#welcome', as: 'welcome'
 
-  get '/gossips/:id/', to: 'gossips#index'
+  get '/gossip/:id/', to: 'static#gossip'
   get '/profils/:id/', to: 'profiles#index'
 
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :gossips 
+  
 end
 
