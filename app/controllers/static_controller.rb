@@ -1,16 +1,13 @@
 class StaticController < ApplicationController
   def home
-  @firstname= params[:first_name]
+    @firstname= params[:firstname]
   end
-
-  def gossip
-    @gossipfind = Gossip.find(params['id'].to_i)
-    @user = User.find(params['id'].to_i)
+  def potin
+    @id_potin = params[:id].to_i
   end
-
   def welcome
     puts params
-    @firstname = params["first_name"]
+    @firstname = params["firstname"]
     puts "c'est fini"
   end
 end
