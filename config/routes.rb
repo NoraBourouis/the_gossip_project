@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'sessions/new'
+  get 'users/create'
   get 'comments/show'
   get 'comments/create'
   get 'comments/edit'
@@ -19,5 +21,6 @@ Rails.application.routes.draw do
   resources :gossips 
   resources :cities
   resources  :comments
+  resources :users
 end
 
