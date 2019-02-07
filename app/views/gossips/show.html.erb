@@ -6,8 +6,12 @@
     @time = potin.created_at
     @city = potin.user.city.name
     %>
+    <% @city_id = City.find(params[:id].to_i)%>
     <%@comments = Comment.where(gossip_id: params[:id], commentable_type: nil)
     @sub_comments = Comment.where(gossip_id: params[:id], commentable_type: 'Comment')%>
+
+
+
 <section class="jumbotron text-center">
  <div class="container">
     <h1 class= "display-3 jumbotron-heading">Voila les détails du potin<%= @firstname%></h1>
@@ -16,30 +20,41 @@
 </section>
 <div class="container col-sm-9">
     <h3 class="mb-0 font-weight-bold"><%= @title %> </h3>
-      <div class="well"> 
+      <div> 
         <p class="text-justify"> Les détails croustillants :</p> 
         <p><%= @content %></p>
       </div>
     <p>Gossip partagé par <a href= "/profils/<%=@user_id%>"><%=@user%> </a>, <em>shhh, keep it secret.</em></p>
-    <p>De la charmante ville de <strong> <%=@city %></strong>.</p>
+    <p>De la charmante ville de <strong><a href= "/cities/<%=@city_id%>"> <%=@city%></strong></a>.</p>
 
   <div class="btn-group">
     <a href="<%=edit_gossip_path(@id_potin)%>" class="btn btn-sm btn-outline-secondary">Edit</a>
     <a href="<%=gossips_path%>" class="btn btn-sm btn-outline-secondary">Retour à l'accueil</a>
   </div>
-  
+</div>
+<div class="container col-sm-9">  
+  <br/> <hr/>
   <h5>Créer un nouveau commentaire pour ce gossip</h5>
-<%= link_to "nouveau commentaire à écrire", new_comment_path(@id_potin) %>
-<h5>Commentaires :</h5>
-    <% @comments.each do |comment| %>
-<%= comment.content %><br /><br />
-<%= comment.user.first_name %><br /><br />
-<%= link_to "modifier le comm'", edit_comment_path(@id_potin, comment.id) %>
-<h5>---Commentaires du commentaire---</h5>
-    <% @sub_comments.each do |comment| %>
-<%= comment.content %><br /><br />
-<%= comment.user.first_name %><br /><br />
-<%= link_to "modifier le comm'", edit_comment_path(@id_potin, comment.id) %>
-<% end %>
-<%end%>
+ <br/>
+  <p><%= link_to "nouveau commentaire à écrire", new_comment_path(@id_potin) %></p>
+  <hr/>
+  <h5>Commentaires :</h5>
+      <% @comments.each do |comment| %>
+        <%= comment.content %><br /><br />
+        <p> Commenté par : <%= comment.user.first_name %></p><br /><br />
+        <%= link_to "modifier le commentaire", edit_comment_path(@id_potin, comment.id) %>
+      <% end %>
+<br/>
+<hr/>
+
+  <h5 class = "text-center">---fil de discussion---</h5>
+<hr/>
+      <% @sub_comments.each do |comment| %>
+        <%= comment.content %><br /><br />
+        <p> Réponse de : <%= comment.user.first_name %></p>
+        <br/>
+        <%= link_to "modifier la réponse", edit_comment_path(@id_potin, comment.id) %>
+        <hr/>
+      <%end%>
+
 </div>

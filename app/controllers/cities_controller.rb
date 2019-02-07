@@ -1,18 +1,16 @@
 class CitiesController < ApplicationController
-  def index
-    @cities = City.all
-  end
-
-  def show
-    @city = City.find(params[:id])
+	def index
+		@cities = City.all
+		params[:id] != "0"
+		@city_id = City.find(params[:id_city].to_i)
+		@gossip = Gossip.find(params[:id].to_i)
+		@gossips = Gossip.all
 		@gossips = []
-		@city.users.each do |user|
+		@city_id.users.each do |user|
 			Gossip.where(user_id: user.id).each do |gossip|
 				@gossips << gossip
 			end
-		end
-		#puts "$" * 50
-		#puts @gossips
-		#puts "$" * 50
   end
+end
+ 
 end
