@@ -3,10 +3,26 @@
     <h1 class= "display-3 jumbotron-heading">Créer un commentaire</h1>
   </div>
 </section>
-<%= form_tag url_for(action: 'create'), method: "post" do %>
-<%= label_tag 'Mon super commentaire, méga pertinent :' %><br/> 
-<%= text_area_tag 'content', @comment.content %>
-<br /> <br />
-<%= submit_tag "Envoyer mon commentaire" %> 
-<% end %>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+          <%= form_tag url_for(action: 'create'), method: "post" do %>
+            <div class ="form-group"> 
+              <h3><%= label_tag 'Mon super commentaire, méga pertinent :' %><br/> </h3>
+              <%= text_area_tag 'content', @comment.content, class: 'form-control' %>
+              <br /> <br />
+            </div>
+            <div class="form-group text-center">
+             <em>Dis pas n'importe quoi, ici, c'est du serieux.</em>
+             <p><em>Nan, c'est pas vrai héhé, you're freeeee.</em></p>
+            </div>
+            <div class="form-group text-center">
+             <button type="submit" class="btn btn-primary "> Envoyer mon commentaire </button> 
+            </div>
+          <% end %>
+      </div>
+      <div class="col-md-3"></div>
+  </div>
+</div>
 

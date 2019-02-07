@@ -10,43 +10,42 @@
     <%@comments = Comment.where(gossip_id: params[:id], commentable_type: nil)
     @sub_comments = Comment.where(gossip_id: params[:id], commentable_type: 'Comment')%>
 
-
-
 <section class="jumbotron text-center">
  <div class="container">
     <h1 class= "display-3 jumbotron-heading">Voila les détails du potin<%= @firstname%></h1>
     <p class= "lead text-muted"> Garde l'identité du mec secrète par contre, on veut pas d'problèmes nous. </p>
   </div>
 </section>
-<div class="container col-sm-9">
+<div class="container-fluid">
+<div class="col-md-3"></div>
+  <div class="col-md-6">
     <h3 class="mb-0 font-weight-bold"><%= @title %> </h3>
-      <div> 
-        <p class="text-justify"> Les détails croustillants :</p> 
-        <p><%= @content %></p>
-      </div>
+    <div> 
+      <p class="text-justify"> Les détails croustillants :</p> 
+      <p><%= @content %></p>
+    </div>
     <p>Gossip partagé par <a href= "/profils/<%=@user_id%>"><%=@user%> </a>, <em>shhh, keep it secret.</em></p>
-
   <div class="btn-group">
     <a href="<%=edit_gossip_path(@id_potin)%>" class="btn btn-sm btn-outline-secondary">Edit</a>
     <a href="<%=gossips_path%>" class="btn btn-sm btn-outline-secondary">Retour à l'accueil</a>
   </div>
 </div>
-<div class="container col-sm-9">  
-  <br/> <hr/>
-  <h5>Créer un nouveau commentaire pour ce gossip</h5>
- <br/>
-  <p><%= link_to "nouveau commentaire à écrire", new_gossip_comment_path(@id_potin) %></p>
-  <hr/> 
-  <h5> Tous les commentaires :</h5> <br/>
-      <% @comments.each do |comment| %>
-      <h6> Commentaire </h6>
-        <%= comment.content %><br /><br />
-        <p> Commenté par : <%= comment.user.first_name %></p>
-        <%= link_to "modifier le commentaire", edit_gossip_comment_path(@id_potin, comment.id) %> <br/><hr/>
-      <% end %>
+<div class="col-md-3"></div>
+</div>
+<div class="col-md-3"></div>
+<div class="container col-md-6"> <br/> <hr/>
+  <h3 class="text-center">Créer un nouveau commentaire pour ce gossip</h3><br/>
+  <p class="text-center"><%= link_to "nouveau commentaire à écrire", new_gossip_comment_path(@id_potin) %></p><hr/> 
+  <div>
+  <h3 class="text-center"> Tous les commentaires </h3><hr/>
+  <% @comments.each do |comment| %>
+    <h5 class="text-center"> Commentaire </h5>
+    <%= comment.content %><br /><br />
+    <p> Commenté par : <%= comment.user.first_name %><br/>
+    <%= link_to "modifier le commentaire", edit_gossip_comment_path(@id_potin, comment.id) %> </p><hr/>
+  <% end %>
+  </div>
 <br/>
 <hr/>
-
- 
-
 </div>
+<div class="col-md-3"></div>

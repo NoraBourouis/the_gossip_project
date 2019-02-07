@@ -1,13 +1,25 @@
-<h1>Comments#edit</h1>
-<p>Find me in app/views/comments/edit.html.erb</p>
-<h1>Edite ce commentaire</h1>
-<%= form_tag url_for(action: 'update'), method: "patch" do %>
-  <%= label_tag 'Content' %>
-  <%= text_area_tag 'content', @comment.content %>
-  <br /> <br />
-  <%= submit_tag "Edite le commentaire" %>
-<% end %>
-<br /><br />
-<h5>Suppression du commentaire</h5>
-<%= link_to "Supprimer le commentaire", gossip_comment_path(@comment.gossip.id, @comment.id), :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+<div class="jumbotron text-center">
+ <div class="container">
+    <h1 class= "display-3 jumbotron-heading">Edite le commentaire</h1>
+  </div>
+</div>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <%= form_tag url_for(action: 'update'), method: "patch" do %>
+        <div class ="form-group">
+          <h3><%= label_tag 'Contenu à modifier:' %></h3>
+          <%= text_area_tag 'content', @comment.content, class: 'form-control' %>
+          <br /> <br />
+        </div>
+        <div class="form-group text-center">
+          <button type="submit" class="btn btn-primary ">Modifier le commentaire</button>
+        </div>
+        <% end %>
+        <div class="form-group text-center">
+          <%= link_to "Supprimer le commentaire", gossip_comment_path(@comment.gossip.id, @comment.id), :class => "btn btn-danger", method: :delete, data: { confirm: 'Are you sure?' } %>
+        </div>
+      <div class="col-md-3"></div>
+  </div>
 

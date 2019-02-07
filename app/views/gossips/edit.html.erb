@@ -1,19 +1,26 @@
-<section class="jumbotron text-center">
+<div class="jumbotron text-center">
  <div class="container">
     <h1 class= "display-3 jumbotron-heading">Editer le potin</h1>
     </div>
-</section>
-
-<%= form_tag url_for(action: 'update'), method: "patch" do %>
+</div>
+  <div class="container-fluid">
+    <div class="row">
+    <div class="col-md-3"></div>
+      <div class="col-md-6">
+        <%= form_tag url_for(action: 'update'), method: "patch" do %>
           <div class="form-group">
-        <%= label_tag 'Title' %>
-          <%= text_field_tag 'title', @gossip.title, class: 'form-control'%>
+            <%= label_tag 'Title' %>
+            <%= text_field_tag 'title', @gossip.title, class: 'form-control'%>
           </div>
           <div class="form-group">
-          <%= label_tag 'Content' %>
-          <%= text_area_tag 'content', @gossip.content, class: 'form-control' %>
+            <%= label_tag 'Content' %>
+            <%= text_area_tag 'content', @gossip.content, class: 'form-control' %>
           </div>
-          <div class="form-group">
-          <button type="submit" class="btn btn-primary">Envoyer</button>
+          <div class="form-group text-center">
+            <button type="submit" class="btn btn-primary ">Envoyer</button>
           </div>
+      </div> 
   <% end %>
+  <div class="col-md-3"></div>
+  </div>
+</div>

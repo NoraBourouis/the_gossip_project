@@ -36,3 +36,52 @@ color: grey;
 #navbarText  a:hover{
   color: gold;
 }
+
+.logo {
+  font-size: 200px;
+}
+
+.sizeup{
+  font-size: 50px;
+}
+.navbar{
+  margin-bottom: 0 !important;
+}
+
+.navbar ul{
+  margin-right: 15px !important;
+  margin-bottom: 0 !important;
+  margin-left: 15px;
+  margin-top: 15px;
+}
+
+.page-team{
+margin: 20px;
+padding: 40px
+  
+}
+.page-team-2{
+  background-color: cadetblue;
+}
+.page-team-2 div{
+  padding: 20px;
+}
+
+.footer div{
+  padding: 30px;  
+}
+.footer {
+  position:relative; bottom:0; left:0; height:200px; 
+  float:none; clear:both;
+  width: 100%;
+  background-color: #8080808c;
+ 
+}
+
+.div-contact{
+  padding: 40px;
+}
+
+.connexion{
+  padding:50px;
+}
