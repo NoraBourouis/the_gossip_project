@@ -1,28 +1,31 @@
 class CommentsController < ApplicationController
   def show
-  	@gossip = Gossip.find(params[:gossip_id])
+  	@gossip = Gossip.find(params[:id])
   	@comment = Comment.find(params[:id])
-  end
-  def new
-  	@gossip = Gossip.find(params[:gossip_id])
+	end
+	
+	def new
+		@gossip = Gossip.all
+  	@gossip = Gossip.find(params[:id])
   	@comment = Comment.new
-  end
+	end
+	
   def create
   	@user = User.find_by(first_name: "Anonymous")
-  	@gossip = Gossip.find(params[:gossip_id])
+  	@gossip = Gossip.find(params[:id])
   	@comment = Comment.new('content' => params[:content], 'user' => @user, 'gossip' => @gossip)
   	if @comment.save # essaie de sauvegarder en base @gossip
   	  # si ça marche, il redirige vers la page d'index du site
-  	  flash[:success] = "Oh le beau commentaire !" #hash depuis l'application.html.erb
+  	  flash[:success] = "Merci pour votre commentaire!" #hash depuis l'application.html.erb
   	  redirect_to root_path
   	else
   	  # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-  	  flash[:danger] = "Meh sans contenu c'est pas un commentaire" #idem
+  	  flash[:danger] = "YOO, écrire correctement, sans contenu c'est pas un commentaire" #idem
   	  render 'new'
   	end
   end
   def edit
-  	@gossip = Gossip.find(params[:gossip_id])
+  	@gossip = Gossip.find(params[:id])
   	@comment = Comment.find(params[:id])
   end
   def update
