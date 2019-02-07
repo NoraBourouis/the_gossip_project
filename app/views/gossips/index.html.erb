@@ -15,6 +15,7 @@
         <p class="card-text">Lanceurs de rumeurs id : <%= gossip.user_id%>  Date du Gossip : <%= gossip.created_at%></p>
         <div class="btn-group">
           <a href="/gossips/<%= gossip.id%>" class="btn btn-sm btn-outline-secondary" role="button">Check le gossip</a>
+          <p href="/gossips/<%= gossip.id%>"class="btn btn-sm btn-outline-secondary"> <%= link_to "Supprimer", gossip, data: {:confirm => 't es sûr de toi la??'} , :method => :delete %></p>
         </div>
       </div>
     </div>

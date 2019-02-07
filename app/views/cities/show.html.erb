@@ -1,19 +1,17 @@
 <h1>Cities#show</h1>
-<p>Find me in app/views/cities/show.html.erb</p>
-
-<% city = City.find(@id_city)
-@name = city.name
-@users = city.users
-%>
 
 <section class="jumbotron text-center">
  <div class="container">
-    <h1 class= "display-3 jumbotron-heading"><%= @name%></h1>
+    <h1 class= "display-3 jumbotron-heading"> <%=@city.name%> </h1>
     </div>
 </section>
 <section>
   <div class="container">
-  <ul> Les gossipers originaires de <%=@name%>
-  <li><%= @users%></li>
+  <% @gossips.each_with_index do |gossip, i| %>
+      <%= gossip.title %>
+      <%= gossip.user.first_name %>
+      <%= link_to "Voir le gossip", gossip_path(gossip.id), :class => "btn btn-primary" %>
+<% end %>
   </div>
 </section>
+

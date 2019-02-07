@@ -9,13 +9,16 @@ RSpec.describe City, type: :model do
     
   end
 
-  context "validation" do
-
-    it "is valid with valid attributes" do
-      expect(@city).to be_a(City)
-      expect(@city).to be_valid
+  context "associations" do
+    describe "users" do
+      it "should have_many users" do
+        city = FactoryBot.create(:city)
+        user = FactoryBot.create(:user, city: city)
+        expect(city.users.include?(user)).to eq(true)
     end
   end
+
+    
 
 =begin
   context "associations" do
