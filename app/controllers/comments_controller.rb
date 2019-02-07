@@ -1,6 +1,7 @@
 class CommentsController < ApplicationController
+	before_action :authenticate_user , only: [:new, :create, :edit, :update, :destroy]
+	
 	def index
-		
 
 	end
 	
@@ -26,13 +27,11 @@ class CommentsController < ApplicationController
 	end
 	
 
-
   def edit
 		@comment = Comment.find(params[:id])
 
 	end
 	
-
 
   def update
   	@comment = Comment.find(params[:id])
@@ -45,10 +44,21 @@ class CommentsController < ApplicationController
   	  flash[:danger] = "edite un commentaire, c'est pas facile" #idem
   	  render :edit
   	end
-  end
+	end
+	
+
   def destroy
   	@comment = Comment.find(params[:id])
     @comment.destroy
     redirect_to gossips_path
+	end
+
+	private
+  
+  def authenticate_user
+      unless current_user
+        flash[:danger] = "Please log in."
+        redirect_to new_session_path
+      end
   end
 end
