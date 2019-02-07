@@ -15,9 +15,10 @@ Rails.application.routes.draw do
   get 'contact', to:'contacts#index'
   get'/', to: "static#welcome"
   post '/', to: 'gossips#index'
+  get '/profils/:id/', to: 'profiles#show'
 =begin 
   get '/welcome/:first_name', to: 'static#welcome', as: 'welcome'
-  get '/profils/:id/', to: 'profiles#show'
+  
 =end
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   #resources :team, only: [:index]

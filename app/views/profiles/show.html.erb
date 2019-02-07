@@ -12,12 +12,17 @@
     <h1 class= "display-3 jumbotron-heading">Le profil du commère</h1>
     </div>
 </section>
-<div class="container">
-   <h1></h1>
-    <p>Prénom : <%= @first_name %> </p>
-    <p>Nom de famille : <%= @last_name %> </p>
-    <p>Sa description : <%= @descripion%> </p>
-    <p>Son e-mail : <%= @email%> </p>
-    <p>Age : <%= @age%> </p>
-    <p>Originaire de : <%= @city%> </p>
+<div class="container-fluid">
+    <div class="row">
+      <div class="col-md-3"></div>
+      <div class="col-md-6" style="padding:50px;">
+            <p class = "profile-text"><strong>Prénom : </strong><%= @first_name %> </p>
+           <p class = "profile-text"><strong>Nom de famille :</strong> <%= @last_name %> </p>
+            <p class = "profile-text"><strong>Sa description :</strong> <%= @descripion%> </p>
+            <p class = "profile-text"><strong>Son e-mail :</strong> <%= @email%> </p>
+            <p class = "profile-text"><strong>Age :</strong> <%= @age%> </p>
+            <p class = "profile-text"><strong>Originaire de :</strong> <%= @city%> </p>
+    </div>
+    <div class="col-md-3"></div>
+    </div>
 </div>
