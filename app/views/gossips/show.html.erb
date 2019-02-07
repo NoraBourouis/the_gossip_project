@@ -6,6 +6,8 @@
     @time = potin.created_at
     @city = potin.user.city.name
     %>
+    <%@comments = Comment.where(gossip_id: params[:id], commentable_type: nil)
+    @sub_comments = Comment.where(gossip_id: params[:id], commentable_type: 'Comment')%>
 <section class="jumbotron text-center">
  <div class="container">
     <h1 class= "display-3 jumbotron-heading">Voila les détails du potin<%= @firstname%></h1>
@@ -24,6 +26,20 @@
   <div class="btn-group">
     <a href="<%=edit_gossip_path(@id_potin)%>" class="btn btn-sm btn-outline-secondary">Edit</a>
     <a href="<%=gossips_path%>" class="btn btn-sm btn-outline-secondary">Retour à l'accueil</a>
-    <a href="<%=gossips_path%>" class="btn btn-sm btn-outline-secondary" data-confirm ="T'es sûr de toi là??" data-method="DELETE">Supprimer</a>
   </div>
+  
+  <h5>Créer un nouveau commentaire pour ce gossip</h5>
+<%= link_to "nouveau commentaire à écrire", new_comment_path(@id_potin) %>
+<h5>Commentaires :</h5>
+    <% @comments.each do |comment| %>
+<%= comment.content %><br /><br />
+<%= comment.user.first_name %><br /><br />
+<%= link_to "modifier le comm'", edit_comment_path(@id_potin, comment.id) %>
+<h5>---Commentaires du commentaire---</h5>
+    <% @sub_comments.each do |comment| %>
+<%= comment.content %><br /><br />
+<%= comment.user.first_name %><br /><br />
+<%= link_to "modifier le comm'", edit_comment_path(@id_potin, comment.id) %>
+<% end %>
+<%end%>
 </div>

@@ -28,3 +28,13 @@ end
 10.times do
   pm = PrivateMessage.create!(sender_id:rand(1..10), recipient_id:rand(1..10), content:Faker::LeagueOfLegends.quote)
 end
+
+20.times do
+	comment = Comment.create!(content: Faker::SiliconValley.motto,user_id: rand(User.first.id..User.last.id),gossip_id: rand(Gossip.first.id..Gossip.last.id))
+end
+
+Comment.all.each do |comment| #tout commentaire - niveau primary
+	rand(0..3).times do #a de 0 à 3 commentaires - niveau secondary - et vive le franglais comme disait Boris Vian
+		comment.comments.create!(content: Faker::SiliconValley.motto,user_id: rand(User.first.id..User.last.id),gossip_id: rand(Gossip.first.id..Gossip.last.id))
+	end
+end

@@ -6,6 +6,8 @@ class GossipsController < ApplicationController
 
   def show
     @id_potin = params[:id].to_i
+    @comments = Comment.where(gossip_id: params[:id], commentable_type: nil)
+    @sub_comments = Comment.where(gossip_id: params[:id], commentable_type: 'Comment')
   end
 
   def new
