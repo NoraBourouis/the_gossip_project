@@ -19,12 +19,16 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+<<<<<<< HEAD
 
+=======
+>>>>>>> 42f7f04a90c498655f718e3a564c807c3c4c05dd
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active nav-link">
           <%= link_to "Accueil", gossips_path %>
         <li class="nav-item nav-link">
+<<<<<<< HEAD
           <%= link_to "La team", team_path %>
         </li>
         <li class="nav-item nav-link">
@@ -62,6 +66,25 @@
 
 
 
+=======
+        <%= link_to "La team", team_path %>
+        </li>
+        <li class="nav-item nav-link">
+        <%= link_to "Contact", contact_path %>
+        </li>
+        <li class="nav-item nav-link">
+        <a href= "/gossips/new">Rapporter un gossip </a>
+        </li>
+        <li class="nav-item nav-link">
+        <a href= "/users/new">S'inscrire </a>
+        </li>
+      </ul>
+      <span class="navbar-text"> XO XO Gossip Project.
+      </span>
+    </div>
+  </nav>
+</header>
+>>>>>>> 42f7f04a90c498655f718e3a564c807c3c4c05dd
   <% if flash[:success]%>
     <div class="alert alert-success" role="alert">
       <%= flash[:success]%>

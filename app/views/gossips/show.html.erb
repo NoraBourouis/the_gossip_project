@@ -6,7 +6,11 @@
     @time = potin.created_at
     @city = potin.user.city.name
     %>
+<<<<<<< HEAD
    
+=======
+    <% @city_id = City.find(params[:id].to_i)%>
+>>>>>>> 42f7f04a90c498655f718e3a564c807c3c4c05dd
     <%@comments = Comment.where(gossip_id: params[:id], commentable_type: nil)
     @sub_comments = Comment.where(gossip_id: params[:id], commentable_type: 'Comment')%>
 
@@ -25,7 +29,11 @@
         <p><%= @content %></p>
       </div>
     <p>Gossip partagé par <a href= "/profils/<%=@user_id%>"><%=@user%> </a>, <em>shhh, keep it secret.</em></p>
+<<<<<<< HEAD
 
+=======
+    <p>De la charmante ville de <strong><a href= "/cities/<%=@city_id%>"> <%=@city%></strong></a>.</p>
+>>>>>>> 42f7f04a90c498655f718e3a564c807c3c4c05dd
 
   <div class="btn-group">
     <a href="<%=edit_gossip_path(@id_potin)%>" class="btn btn-sm btn-outline-secondary">Edit</a>

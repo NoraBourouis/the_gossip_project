@@ -1,5 +1,6 @@
 class SessionsController < ApplicationController
   def new
+<<<<<<< HEAD
     @user = ""
   end
 
@@ -23,4 +24,7 @@ class SessionsController < ApplicationController
     redirect_to gossips_path
   end
   
+=======
+  end
+>>>>>>> 42f7f04a90c498655f718e3a564c807c3c4c05dd
 end
