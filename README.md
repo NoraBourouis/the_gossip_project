@@ -19,19 +19,19 @@ Allez sur votre navigateur et allez sur la page http://localhost:3000/
 A partir de cette page, la navigation commence ! Enjoyyyyy.
 
 
-
 # Description de l'application
 
-Bienvenu(e) chère frère et soeurs dans un domaine UNIQUE !
-Vous avez toujours rêvé de raconter vos nouvelles, mais personne ne vous écoutait ?!
-Dès à présent partagez vos histoires avec le monde entier.
+## Pas oublier le lien heroku ###
 
-Rendez-vous sur notre superbe Landing page : http://localhost:3000/ 
-Entrez votre petit surnom et accèder à tous les potins de la terre, ainsi qu'à leurs mystérieux auteurs !
+Bienvenu(e) chère frère et soeurs dans un domaine UNIQUE ! Vous avez toujours rêvé de raconter vos nouvelles, mais personne ne vous écoutait ?! Dès à présent partagez vos histoires avec le monde entier.
+
+Rendez-vous sur notre superbe Landing page : http://localhost:3000/ pour découvrir les potins en cours.
+Et inscrivez-vous pour partagez vos plus beaux potins et également commentez ceux des autres !
 
 Bientôt vous pourrez composer vous même vos potins, mais laissez nous encore quelques jours pour travailler sur cette fonctionnalité.
 
 Si vous voulez faire des dons passez par la page Contact !
+
 
 
 
