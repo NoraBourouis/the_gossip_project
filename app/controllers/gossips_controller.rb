@@ -19,7 +19,7 @@ class GossipsController < ApplicationController
     puts params
     @gossipnew = Gossip.new('title' => params[:title],
                      'content' => params[:content],
-                     'user_id'=> rand(User.first.id..User.last.id))
+                     'user_id'=> session[:user_id])
 
     if @gossipnew.save
       flash[:success] = "Woohoo, merci pour ce gossip!"

@@ -1,2 +1,16 @@
-<h1>Sessions#new</h1>
-<p>Find me in app/views/sessions/new.html.erb</p>
+<section class="jumbotron text-center">
+ <div class="container">
+ <h1 class= "display-3 jumbotron-heading">Connexion</h1>
+ </div>
+ </section>
+  <%= form_tag url_for(action: 'create'), method: "post" do %>
+     <div class ="form-group">
+      <%= label_tag 'Ton email de connexion : '%>
+      <%= text_field_tag 'email', @user %>
+      </div>
+      <div class ="form-group">
+        <%= label_tag 'Ton mot de passe: '%>
+        <%= text_field_tag 'password', @user %>
+      </div>
+      <%= submit_tag "Se connecter" %>
+  <%end%>

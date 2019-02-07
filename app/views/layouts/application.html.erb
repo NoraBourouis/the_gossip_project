@@ -19,28 +19,49 @@
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
+
     <div class="collapse navbar-collapse" id="navbarText">
       <ul class="navbar-nav mr-auto">
         <li class="nav-item active nav-link">
           <%= link_to "Accueil", gossips_path %>
         <li class="nav-item nav-link">
-        <%= link_to "La team", team_path %>
+          <%= link_to "La team", team_path %>
         </li>
         <li class="nav-item nav-link">
-        <%= link_to "Contact", contact_path %>
+          <%= link_to "Contact", contact_path %>
         </li>
         <li class="nav-item nav-link">
-        <a href= "/gossips/new">Rapporter un gossip </a>
-        </li>
-        <li class="nav-item nav-link">
-        <a href= "/users/new">S'inscrire </a>
+          <a href= "/gossips/new">Rapporter un gossip </a>
         </li>
       </ul>
-      <span class="navbar-text"> XO XO Gossip Project.
-      </span>
+      <span class="navbar-text"> XO XO Gossip Project.</span>
     </div>
+
+  <% if current_user %>
+<div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Espace perso
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+  <%= link_to "Se déconnecter", session_path(session[:user_id]), method: :delete, class: "dropdown-item" %>
+  </div>
+</div>
+<% else %>
+  <div class="dropdown">
+  <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Connexion
+  </button>
+  <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+    <a class="dropdown-item" href="/users/new">S'inscrire</a>
+    <a class="dropdown-item" href="/sessions/new">se connecter</a>
+  </div>
+</div>
+<%end%>
   </nav>
 </header>
+
+
+
   <% if flash[:success]%>
     <div class="alert alert-success" role="alert">
       <%= flash[:success]%>
