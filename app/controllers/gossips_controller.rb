@@ -1,4 +1,6 @@
 class GossipsController < ApplicationController
+  before_action :authenticate_user
+
   def index
       @firstname= params[:firstname]
       @gossip = Gossip.all
@@ -39,16 +41,13 @@ class GossipsController < ApplicationController
   end
 
   def update
-    #@gossip = Gossip.find(params[:id])
-    #@gossip.update('title' => params[:title], 'content' => params[:content])
-    #@gossip.update(gossip_params)
     @gossip = Gossip.find(params["id"])
     if  @gossip.update(title: params["title"], content: params["content"])
       redirect_to gossip_path(@gossip.id), notice: "Gossip successfully modified! "
     else 
       render 'edit'
     end
-    #redirect_to gossip_path
+
   end
 
 
@@ -58,12 +57,15 @@ class GossipsController < ApplicationController
     redirect_to gossips_path
 
   end
-=begin
-  private
 
-  def gossip_params
-    @gossip = Gossip.all
-    gossip_params = params.require(:gossip).permit(:title, :content)
+  private
+  
+  def authenticate_user
+      unless current_user
+        flash[:danger] = "Please log in."
+        redirect_to new_session_path
+      end
   end
-=end
+ 
+
 end

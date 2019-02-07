@@ -36,12 +36,13 @@
   <h5>Créer un nouveau commentaire pour ce gossip</h5>
  <br/>
   <p><%= link_to "nouveau commentaire à écrire", new_gossip_comment_path(@id_potin) %></p>
-  <hr/>
-  <h5>Commentaires :</h5>
+  <hr/> 
+  <h5> Tous les commentaires :</h5> <br/>
       <% @comments.each do |comment| %>
+      <h6> Commentaire </h6>
         <%= comment.content %><br /><br />
-        <p> Commenté par : <%= comment.user.first_name %></p><br /><br />
-        <%= link_to "modifier le commentaire", edit_gossip_comment_path(@id_potin, comment.id) %>
+        <p> Commenté par : <%= comment.user.first_name %></p>
+        <%= link_to "modifier le commentaire", edit_gossip_comment_path(@id_potin, comment.id) %> <br/><hr/>
       <% end %>
 <br/>
 <hr/>
