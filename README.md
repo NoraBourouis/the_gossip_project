@@ -21,7 +21,7 @@ A partir de cette page, la navigation commence ! Enjoyyyyy.
 
 # Description de l'application
 
-## Pas oublier le lien heroku ###
+## checker le lien: https://nora-gossip-world.herokuapp.com/ 
 
 Bienvenu(e) chère frère et soeurs dans un domaine UNIQUE ! Vous avez toujours rêvé de raconter vos nouvelles, mais personne ne vous écoutait ?! Dès à présent partagez vos histoires avec le monde entier.
 
