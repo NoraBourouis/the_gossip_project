@@ -1,10 +1,12 @@
-<h1>Créer un commentaire</h1>
+<section class="jumbotron text-center">
+ <div class="container">
+    <h1 class= "display-3 jumbotron-heading">Créer un commentaire</h1>
+  </div>
+</section>
 <%= form_tag url_for(action: 'create'), method: "post" do %>
-	<!--input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>"-->
-  <!--input type="text" name="gossip_text"-->
-  <!--input type="submit" value="Valider"-->
-  <%= label_tag 'Content' %>
-  <%= text_area_tag 'content', @comment.content %>
-  <br /> <br />
-  <%= submit_tag "Create Comment" %>
+<%= label_tag 'Mon super commentaire, méga pertinent :' %><br/> 
+<%= text_area_tag 'content', @comment.content %>
+<br /> <br />
+<%= submit_tag "Envoyer mon commentaire" %> 
 <% end %>
+

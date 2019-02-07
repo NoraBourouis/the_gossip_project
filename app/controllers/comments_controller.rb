@@ -1,36 +1,42 @@
 class CommentsController < ApplicationController
-  def show
+	def index
+		
+
+	end
+	
+	def show
   	@gossip = Gossip.find(params[:id])
   	@comment = Comment.find(params[:id])
 	end
 	
 	def new
-		@gossip = Gossip.all
-  	@gossip = Gossip.find(params[:id])
   	@comment = Comment.new
 	end
 	
   def create
-  	@user = User.find_by(first_name: "Anonymous")
-  	@gossip = Gossip.find(params[:id])
-  	@comment = Comment.new('content' => params[:content], 'user' => @user, 'gossip' => @gossip)
+  	@comment = Comment.new('content' => params[:content], 'user_id' => session[:user_id], 'gossip_id' => params[:gossip_id])
   	if @comment.save # essaie de sauvegarder en base @gossip
   	  # si ça marche, il redirige vers la page d'index du site
   	  flash[:success] = "Merci pour votre commentaire!" #hash depuis l'application.html.erb
-  	  redirect_to root_path
+  	  redirect_to gossip_path(params[:gossip_id])
   	else
-  	  # sinon, il render la view new (qui est celle sur laquelle on est déjà)
-  	  flash[:danger] = "YOO, écrire correctement, sans contenu c'est pas un commentaire" #idem
+  	  flash[:danger] = "YOO, écris correctement, sans contenu c'est pas un commentaire" #idem
   	  render 'new'
   	end
-  end
+	end
+	
+
+
   def edit
-  	@gossip = Gossip.find(params[:id])
-  	@comment = Comment.find(params[:id])
-  end
+		@comment = Comment.find(params[:id])
+
+	end
+	
+
+
   def update
   	@comment = Comment.find(params[:id])
-  	if @comment.update('content' => params[:content], 'user' => @comment.user, 'gossip' => @comment.gossip)
+  	if @comment.update('content' => params[:content])
   	  # si ça marche, il redirige vers la page d'index du site
   	  flash[:success] = "Update bien pris en base" #hash depuis l'application.html.erb
   	  redirect_to gossip_path(@comment.gossip.id)
@@ -43,6 +49,6 @@ class CommentsController < ApplicationController
   def destroy
   	@comment = Comment.find(params[:id])
     @comment.destroy
-    redirect_to root_path
+    redirect_to gossips_path
   end
 end
