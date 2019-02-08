@@ -1,16 +1,18 @@
 Rails.application.routes.draw do
 =begin  
   get 'sessions/new'
-  get 'users/create'
+  
   get 'comments/show'
   get 'comments/create'
   get 'comments/edit'
   get 'comments/update'
   get 'comments/destroy'
   get 'cities/index'
+=end
   get 'cities/show'
   get 'gossips/index'
-=end
+  get 'users/create'
+
   get 'team', to: 'teams#index'
   get 'contact', to:'contacts#index'
   get'/', to: "static#welcome"
