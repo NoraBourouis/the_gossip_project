@@ -1,30 +1,23 @@
 Rails.application.routes.draw do
-=begin  
   get 'sessions/new'
-  
+  get 'users/create'
   get 'comments/show'
   get 'comments/create'
   get 'comments/edit'
   get 'comments/update'
   get 'comments/destroy'
   get 'cities/index'
-=end
   get 'cities/show'
   get 'gossips/index'
-  get 'users/create'
-
   get 'team', to: 'teams#index'
   get 'contact', to:'contacts#index'
+ 
   get'/', to: "static#welcome"
   post '/', to: 'gossips#index'
-  get '/profils/:id/', to: 'profiles#show'
-=begin 
   get '/welcome/:first_name', to: 'static#welcome', as: 'welcome'
-  
-=end
+  get '/profils/:id/', to: 'profiles#show'
+
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  #resources :team, only: [:index]
-  #resources :contact, only: [:index]
   resources :gossips do
     resources :comments
   end
