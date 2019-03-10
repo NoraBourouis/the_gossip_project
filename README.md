@@ -1,7 +1,4 @@
-# README POUR L'APPLICATION the_gossip_project
-
-
-## Projet réalisé par Nora Bourouis & Jonathan Lutz
+# L'APPLICATION the_gossip_project
 
 # Description de l'application
 
@@ -13,8 +10,7 @@ Rendez-vous sur notre superbe Landing page : https://nora-gossip-world.herokuapp
 Et inscrivez-vous pour partagez vos plus beaux potins et également commentez ceux des autres !
 
 
-
-
+Ce repo a été forked du projet réalisé par Nora Bourouis & Jonathan Lutz
 
 
 
